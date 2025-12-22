@@ -1,0 +1,738 @@
+{
+	"info": {
+		"_postman_id": "44a2b638-1e41-4c8f-9fa9-890cff83a0bf",
+		"name": "Excise ISSO",
+		"description": "Collection นี้มี Request ย่อยครบ 4 Context Paths (aec-rest, nsw-rest, de-rest, etn-rest) สำหรับทุก Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "UAT",
+			"item": [
+				{
+					"name": "Cloud Copy",
+					"item": [
+						{
+							"name": "login",
+							"id": "c1f04bd7-50ce-46dc-8446-75e9faa6c966",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "OAM_REMOTE_USERID",
+										"value": "10011111",
+										"type": "text"
+									}
+								],
+								"url": "{{cloud_url}}/classic-cars-uat/login/"
+							},
+							"response": []
+						},
+						{
+							"name": "login",
+							"id": "8ec2004d-b080-4796-84c8-a9fdaaef93ac",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "OAM_REMOTE_USERID",
+										"value": "111111111",
+										"type": "text"
+									}
+								],
+								"url": "{{cloud_url}}/classic-cars-uat/login/"
+							},
+							"response": []
+						}
+					],
+					"id": "a9c8d044-bdce-41ca-ac9f-18a0cc28cf73"
+				},
+				{
+					"name": "ISSO004",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7294416f-3989-45f7-b547-d8d69e4843ac",
+								"exec": [
+									"// ✅ Expected Pass: 200/400. ❌ Expected Fail (Config/Network Block): Timeout, 403 Forbidden, 5xx"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"id": "5e8316f3-e987-4746-b079-ce41a53b0dc3",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"requestHeader\": {\n        \"sourceSystem\": \"EDCSSO\",\n        \"destinationSystem\": \"<ชื่อย่อระบบ>\",\n        \"options\": \"TEST\",\n        \"ipaddress\": \"192.168.160.54\"\n    },\n    \"requestData\": {\n        \"userId\": \"123456\",\n        \"userStatus\": \"1\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{service-hostname}}/uat/sso/ISSO004"
+					},
+					"response": []
+				},
+				{
+					"name": "ISSO001",
+					"id": "05e4113b-7a01-4b74-8327-277138c98d84",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"requestHeader\": {\n        \"sourceSystem\": \"EDCSSO\",\n        \"destinationSystem\": \"<ชื่อย่อระบบ>\",\n        \"options\": \"TEST\",\n        \"ipaddress\": \"192.168.160.54\"\n    },\n    \"requestData\": {\n        \"userId\": \"123456\",\n        \"tin\": [\n            \"3100963193446\"\n        ]\n    }\n}"
+						},
+						"url": "{{service-hostname}}/uat/sso/ISSO001"
+					},
+					"response": []
+				},
+				{
+					"name": "HealthCheck",
+					"id": "086513a4-787b-4e52-8d06-b45b7ffc73bd",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": "{{service-hostname}}/uat/sso/"
+					},
+					"response": []
+				}
+			],
+			"id": "1541db4c-dba3-459a-9b68-4623e859c513"
+		},
+		{
+			"name": "PROD",
+			"item": [
+				{
+					"name": "ISSO004",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7294416f-3989-45f7-b547-d8d69e4843ac",
+								"exec": [
+									"// ✅ Expected Pass: 200/400. ❌ Expected Fail (Config/Network Block): Timeout, 403 Forbidden, 5xx"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"id": "1b95c770-21c1-40e0-b029-2b8e0c045998",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"requestHeader\": {\n        \"sourceSystem\": \"EDCSSO\",\n        \"destinationSystem\": \"<ชื่อย่อระบบ>\",\n        \"options\": \"TEST\",\n        \"ipaddress\": \"192.168.160.54\"\n    },\n    \"requestData\": {\n        \"userId\": \"123456\",\n        \"userStatus\": \"1\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{service-hostname}}/prod/sso/ISSO004"
+					},
+					"response": []
+				},
+				{
+					"name": "ISSO001",
+					"id": "9327053a-1317-45d0-b3a2-fc0895ac7145",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"requestHeader\": {\n        \"sourceSystem\": \"EDCSSO\",\n        \"destinationSystem\": \"<ชื่อย่อระบบ>\",\n        \"options\": \"TEST\",\n        \"ipaddress\": \"192.168.160.54\"\n    },\n    \"requestData\": {\n        \"userId\": \"123456\",\n        \"tin\": [\n            \"3100963193446\"\n        ]\n    }\n}"
+						},
+						"url": "{{service-hostname}}/prod/sso/ISSO001"
+					},
+					"response": []
+				},
+				{
+					"name": "HealthCheck",
+					"id": "7b3ea384-7bdd-48ed-9c20-c3c0f843abae",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"requestHeader\": {\n        \"sourceSystem\": \"EDCSSO\",\n        \"destinationSystem\": \"<ชื่อย่อระบบ>\",\n        \"options\": \"\",\n        \"ipaddress\": \"192.168.160.54\"\n    },\n    \"requestData\": {\n        \"userId\": \"123456\",\n        \"userStatus\": \"1\"\n    }\n}"
+						},
+						"url": "{{service-hostname}}/prod/sso/"
+					},
+					"response": []
+				}
+			],
+			"id": "e6b53644-0a1e-4f0e-b098-8761d395b661"
+		},
+		{
+			"name": "Local",
+			"item": [
+				{
+					"name": "Cloud",
+					"item": [
+						{
+							"name": "login",
+							"id": "99aa35db-57f7-403c-83d2-7b990eb88d6d",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "OAM_REMOTE_USERID",
+										"value": "10011111",
+										"type": "text"
+									}
+								],
+								"url": "{{cloud_url_local}}/classic-cars-uat/login/"
+							},
+							"response": []
+						},
+						{
+							"name": "login",
+							"id": "2f300f6d-2167-436d-ab37-8d2b81eaa704",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "OAM_REMOTE_USERID",
+										"value": "111111111",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"tin\": \"6045454045801\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{cloud_url_local}}/classic-cars-uat/login/"
+							},
+							"response": []
+						}
+					],
+					"id": "8fcefdff-24af-450b-bbf5-49eb746449e5"
+				},
+				{
+					"name": "ISSO004",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7294416f-3989-45f7-b547-d8d69e4843ac",
+								"exec": [
+									"// ✅ Expected Pass: 200/400. ❌ Expected Fail (Config/Network Block): Timeout, 403 Forbidden, 5xx"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"id": "d6d20917-9fc2-419b-9f7b-c27c5fe1d4b9",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"requestHeader\": {\n        \"sourceSystem\": \"EDCSSO\",\n        \"destinationSystem\": \"CARS\",\n        \"options\": \"TEST\",\n        \"ipaddress\": null\n    },\n    \"requestData\": {\n        \"userId\": null,\n        \"userStatus\": null\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{local-hostname}}/ISSO004"
+					},
+					"response": []
+				},
+				{
+					"name": "ISSO001",
+					"id": "79ce34af-751e-40c2-a3dd-d0b33746f333",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"requestHeader\": {\n        \"sourceSystem\": \"EDCSSO\",\n        \"destinationSystem\": \"NWS\",\n        \"options\": \"TEST\",\n        \"ipaddress\": null\n    },\n    \"requestData\": {\n        \"userId\": null,\n        \"tin\": null\n    }\n}"
+						},
+						"url": "{{local-hostname}}/ISSO001"
+					},
+					"response": []
+				},
+				{
+					"name": "LandingPage",
+					"id": "50890078-eed3-4a6a-95cf-61f317b9907b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "OAM_REMOTE_USERID",
+								"value": "1329900741248",
+								"type": "text"
+							},
+							{
+								"key": "OAM_LAST_REQUTHENTICATION_TIME",
+								"value": "2025-10-30T07:54:13",
+								"type": "text"
+							},
+							{
+								"key": "OAM_IDENTITY_DOMAIN",
+								"value": "https://classiccars.excise.go.th",
+								"type": "text"
+							}
+						],
+						"url": "{{local-hostname}}/sso-login"
+					},
+					"response": []
+				}
+			],
+			"id": "4107c8c3-f8f8-4db5-9788-c70083e4db0b"
+		},
+		{
+			"name": "Cloud GW",
+			"item": [
+				{
+					"name": "EDCSSO",
+					"item": [
+						{
+							"name": "edcssoUserInfo",
+							"id": "4a70db43-4b8f-4f33-8d03-95c6d48149e7",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"requestHeader\": {\n        \"sourceSystem\": \"TESTSYS\",\n        \"destinationSystem\": \"EDCSSO\",\n        \"options\": \"\",\n        \"ipaddress\": \"127.0.0.1\"\n    },\n    \"requestData\": {\n        \"userEmail\": \"krongkarn.p@think-bit.org\"\n        // \"userEmail\": \"kiraso74@gmail.com\"\n        // \"userEmail\": \"phongsak.ysd@gmail.com\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{api-edcsso}}/oss-es/sso-service/v3/edcssoUserInfo"
+							},
+							"response": []
+						},
+						{
+							"name": "RegFri1300",
+							"id": "6b714a8e-7a63-47ba-b294-884bcc32dab4",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{  \n   \"ipaddress\":\"10.11.1.10\",\n   \"systemid\":\"classiccars\",\n   \"password\":\"123456\",\n   \"username\":\"reg\",\n   \"requestData\":{\n      \"Pin\":\"1530100063164\",\n      \"CusId\" : \"\",\n      \"FacId\" : \"\",\n      \"PageNo\":\"1\",\n      \"DataPerPage\":\"100\"\n   }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{api-regis}}/EDRestServicesUAT/reg/RegFri1300"
+							},
+							"response": []
+						}
+					],
+					"id": "856896c2-a8f7-410f-81aa-6ccb1eed3502"
+				},
+				{
+					"name": "E-SIGN",
+					"item": [
+						{
+							"name": "ตรวจสอบสถานะการมีลายเซ็น",
+							"id": "9693d72d-b347-4f7e-82da-866680bc7e16",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{api-esign}}/ets-ca/service/signImage/CheckUserImageSignStatus?userName=apiruck&system=E-SARABUN&fileType=จดหมาย TH",
+									"host": [
+										"{{api-esign}}"
+									],
+									"path": [
+										"ets-ca",
+										"service",
+										"signImage",
+										"CheckUserImageSignStatus"
+									],
+									"query": [
+										{
+											"key": "userName",
+											"value": "apiruck"
+										},
+										{
+											"key": "system",
+											"value": "E-SARABUN"
+										},
+										{
+											"key": "fileType",
+											"value": "จดหมาย TH"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ดึงข้อมูลรูปภาพลายเซ็น",
+							"id": "cf2f248c-b668-4dc4-b9aa-2b3c40027187",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    // \"userName\": \"nawaporn_b\",\n    // \"userName\": \"narisara.a\",\n    // \"userName\": \"panniwit\",\n    \"userName\": \"apiruck\",\n    \"system\": \"E-SARABUN\",\n    \"fileType\": \"จดหมาย TH\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{api-esign}}/ets-ca/service/getPersonSignImage"
+							},
+							"response": []
+						},
+						{
+							"name": "ผู้มีอำนาจสูงสุดภายใต้หน่วยงาน",
+							"id": "8b770e5e-05b6-4fc8-a0ce-840e6c5932c2",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deptCode\": \"000500\",\n    \"system\": \"E-SARABUN\",\n    \"fileType\": \"จดหมาย TH\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{api-esign}}/ets-ca/service/getTopActingPerson"
+							},
+							"response": []
+						}
+					],
+					"id": "22f74423-56a4-40b7-9445-6f0d44af1f1f"
+				},
+				{
+					"name": "ทะเบียน",
+					"item": [
+						{
+							"name": "RegFri1300",
+							"id": "92a735c7-3af2-4327-85f3-f06389237992",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{  \n   \"ipaddress\":\"10.11.1.10\",\n   \"systemid\":\"reg\",\n   \"password\":\"123456\",\n   \"username\":\"reg\",\n   \"requestData\":{  \n      \"Pin\":\"1530100063164\",\n      \"CusId\" : \"\",\n      \"FacId\" : \"\",\n      \"PageNo\":\"1\",\n      \"DataPerPage\":\"100\"\n   }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{cloud_url}}/intra/regis/EDRestServicesUAT/reg/RegFri1300"
+							},
+							"response": []
+						}
+					],
+					"id": "2ba55f2b-f876-4ed2-a7c2-8600869e7013"
+				},
+				{
+					"name": "ขอเลข28หลัก",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "400e87c4-0c8f-43e0-9185-3b7aadf5afce",
+								"exec": [
+									"console.log(pm.response.json().ResponseData.ExciseProductCode)"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"id": "6c4aa86c-c4b5-42b1-885d-ae8957199682",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"SystemId\": \"sssss\",\n    \"UserName\": \"train02\",\n    \"Password\": \"train02\",\n    \"IpAddress\": \"10.1.1.1\",\n    \"RequestData\": {\n        \"CusId\": \"63000218\",\n        \"FacId\": \"63F00155\",\n        \"RegId\": \"80600947199561001\",\n        \"ProductsList\": {\n            \"ProductsInfo\": [\n                {\n                    \"GroupId\": \"0501\",\n                    \"ProductCode\": \"0601120301\",\n                    \"BrandMainNameTh\":\"\" ,\n                    \"BrandMainNameEn\": \"TOYOTA\",\n                    \"BrandSecondNameTh\":\"\",\n                    \"BrandSecondNameEn\": \"COROLLA\",\n                    \"ModelDesc\": \"2.0\",\n                    \"SizeDesc\": \"2500\",\n                    \"PackageDesc\": \"CC\",\n                    \"UnitCode\": \"01\",\n                    \"UnitName\" : \"คัน\",\n                    \"DegreeCode\":\"\",\n                    \"Barcode\":\"\",\n                    \"Price\": 500000.00,\n                    \"CategoryGroupCode\": \"00\",\n                    \"CategoryCode\": \"010\",\n                    \"CategoryOtherFlag\":\"\",\n                    \"CategoryOtherDesc\":\"\"\n                }\n            ]\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{webtest}}/EDRestServicesUAT/prc/newProductInfo01"
+					},
+					"response": []
+				},
+				{
+					"name": "ใบขน",
+					"id": "f1c86676-6542-474d-8afa-27d9ddcbf283",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Systemid\": \"IMP\",\n    \"Username\": \"ImpUser\",\n    \"Password\": \"IMP123456\",\n    \"Ipaddress\": \"10.11.1.1\",\n    \"RequestData\": {\n        \"ImportDeclarationNo\": \"{{เลขที่ใบขน}}\",\n        \"SearchType\": \"0\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{webtest}}/EDRestServicesUAT/imp/InquiryImportDeclaration"
+					},
+					"response": []
+				}
+			],
+			"id": "7449d996-3297-46e1-b9bc-f53552a7fafb"
+		},
+		{
+			"name": "[X] Regist",
+			"id": "c4070f65-b998-4169-941c-c8997c93bc89",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{  \n   \"ipaddress\":\"10.11.1.10\",\n   \"systemid\":\"reg\",\n   \"password\":\"123456\",\n   \"username\":\"reg\",\n   \"requestData\":{  \n      \"Pin\":\"0103517024065\",\n      \"CusId\" : \"\",\n      \"FacId\" : \"\",\n      \"PageNo\":\"1\",\n      \"DataPerPage\":\"100\"\n   }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://ws.excise.go.th/EDRestServices/reg/RegFri1300"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "cac131b8-9eaf-4e67-ae59-e742f75c60c0",
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "b7fa457c-68da-4dd0-97df-fe1fcda5127d",
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "service-hostname",
+			"value": "http://localhost",
+			"description": "Host และ Port ของ Service ปลายทาง"
+		},
+		{
+			"key": "local-hostname",
+			"value": "http://localhost:3000",
+			"description": "Host และ Port ของ Service local"
+		},
+		{
+			"key": "cloud_url",
+			"value": ""
+		},
+		{
+			"key": "cloud_url_local",
+			"value": ""
+		},
+		{
+			"key": "api-edcsso",
+			"value": ""
+		},
+		{
+			"key": "myurl3",
+			"value": ""
+		},
+		{
+			"key": "api-esign",
+			"value": ""
+		},
+		{
+			"key": "webtest",
+			"value": ""
+		},
+		{
+			"key": "เลขที่ใบขน",
+			"value": ""
+		},
+		{
+			"key": "api-regis",
+			"value": "",
+			"type": "default"
+		}
+	]
+}
